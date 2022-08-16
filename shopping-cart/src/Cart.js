@@ -12,9 +12,14 @@ export default function Cart(props) {
 
   return(
     <div className="page">
-      <Header cartNumber={cartNumber} />
-      <CartItems currentCart={currentCart} changeCurrentCart={changeCurrentCart} />
-      <CartFooter />
+      <Header currentCart={currentCart} />
+      <CartItems 
+        currentCart={currentCart} 
+        changeCurrentCart={changeCurrentCart} 
+        cartNumber={cartNumber} 
+        changeCartNumber={changeCartNumber}
+      />
+      <CartFooter currentCart={currentCart} />
     </div>
   );
 };

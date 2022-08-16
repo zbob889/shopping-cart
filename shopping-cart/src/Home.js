@@ -3,14 +3,12 @@ import Pens from "./components/Pens";
 
 export default function App(props) {
 
-  const currentCart = props.currentCart;
-  const changeCurrentCart = props.changeCurrentCart;
   const cartNumber = props.cartNumber;
-  const changeCartNumber = props.changeCartNumber;
+  const currentCart = props.currentCart;
 
   return(
     <div className="page">
-      <Header cartNumber={cartNumber} />
+      <Header currentCart={currentCart} />
       <Pens />
     </div>
   );

@@ -33,7 +33,6 @@ export default function ShopItems(props){
     };
 
     useEffect(() => {
-        console.log(currentCart);
         changeCartNumber(currentCart.length);
       }, [counter]);
 

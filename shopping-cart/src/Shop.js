@@ -11,7 +11,7 @@ export default function Shop(props){
 
     return(
         <div>
-            <Header cartNumber={cartNumber} />
+            <Header currentCart={currentCart} />
             <ShopItems currentCart={currentCart} changeCurrentCart={changeCurrentCart} changeCartNumber={changeCartNumber} />
         </div>
     )
