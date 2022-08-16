@@ -42,6 +42,10 @@
     background-color: var(--header-color);
     text-decoration: none;
     position: relative;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navButton::before {
@@ -69,6 +73,8 @@
     background-color: var(--header-color);
     outline: none;
     border: none;
+    color: black;
+    text-decoration: none;
   }
 
   .material-icons {

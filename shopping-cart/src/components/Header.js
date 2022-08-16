@@ -1,28 +1,20 @@
-export default function Header(){
-    
-    function goHome(){
-        window.location.replace('http://localhost:3000/');
-    };
-    function goShop(){
-        window.location.replace('http://localhost:3000/shop');
-    };
-    function goCart(){
-        window.location.replace('http://localhost:3000/cart');
-    };
+import { Link, NavLink } from "react-router-dom";
+
+export default function Header(props){
 
     return(
         <div className="header">
             <p className="title">Claudia's Pens</p>
 
             <nav className="navigation">
-                <button className="navButton" onClick={goHome}>Home</button>
-                <button className="navButton" onClick={goShop}>Shop</button>
+                <NavLink to='/' className='navButton'>Home</NavLink>
+                <NavLink to='/shop' className='navButton'>Shop</NavLink>
             </nav>
 
-            <button className="cart" onClick={goCart}>
+            <NavLink to='/cart' className='cart'>
                 <div className="material-icons">shopping_cart</div>
-                <div>0</div>
-            </button>
+                <div>{props.cartNumber}</div>
+            </NavLink>
         </div>
     );
 };

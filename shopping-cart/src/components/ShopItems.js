@@ -1,21 +1,41 @@
+import { useEffect, useState } from "react";
 import itemsData from "../data/itemsData";
 import Card from "./Card";
 
-export default function ShopItems(){
+export default function ShopItems(props){
+
+    const changeCartNumber = props.changeCartNumber;
+    const currentCart = props.currentCart;
+    const changeCurrentCart = props.changeCurrentCart;
+
+    const [counter, changeCounter] = useState(0);
 
     const alphabeticalItems = itemsData.sort((a, b) => a.name !== b.name ? a.name < b.name ? -1 : 1 : 0);
 
-    let currentCart = [];
+    function addItem(newItem){
+        changeCurrentCart(prevCart => {
+            return [...prevCart, newItem];
+        });
+    };
 
     function addToCart(e){
         let penName = e.target.parentNode.children[1].innerHTML;
         let indexNumber = alphabeticalItems.findIndex(e => e.name === penName);
-        if(currentCart.find(e => e == alphabeticalItems[indexNumber]) != undefined){
+        let pen = alphabeticalItems[indexNumber];
+
+
+        if(currentCart.find(e => e === pen) !== undefined){
             return;
         } else {
-            currentCart.push(alphabeticalItems[indexNumber]);
+            addItem(pen);
+            changeCounter(prevCounter => prevCounter + 1);
         };
     };
+
+    useEffect(() => {
+        console.log(currentCart);
+        changeCartNumber(currentCart.length);
+      }, [counter]);
 
 
     return(
